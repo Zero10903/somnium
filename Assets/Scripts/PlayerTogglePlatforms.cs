@@ -16,8 +16,12 @@ public class PlayerTogglePlatforms : MonoBehaviour{
     }
 
     private void Update(){
+
+        // ? Toggle the platforms when the player presses the J key
         if(Input.GetKeyDown(KeyCode.J)){
+
             _isDreamsDimensionActive = !_isDreamsDimensionActive;
+
             TogglePlatformsByTag(_temporaryPlatformsTag, _isDreamsDimensionActive);
             TogglePlatformsByTag(_movingPlatformsTag, !_isDreamsDimensionActive);
         }
@@ -25,19 +29,19 @@ public class PlayerTogglePlatforms : MonoBehaviour{
 
     // ? Toggle the platforms by tag
     private void TogglePlatformsByTag(string tag, bool isActive){
+
         GameObject[] platforms = GameObject.FindGameObjectsWithTag(tag);
-        foreach (GameObject platform in platforms)
-        {
-            // ? Disable the sprite renderer and collider of the platform
+
+        // ? Disable the sprite renderer and collider of the platform
+        foreach (GameObject platform in platforms){
+            
             var spriteRenderer = platform.GetComponent<SpriteRenderer>();
-            if (spriteRenderer != null)
-            {
+            if (spriteRenderer != null){
                 spriteRenderer.enabled = isActive;
             }
 
             var collider = platform.GetComponent<Collider2D>();
-            if (collider != null)
-            {
+            if (collider != null){
                 collider.enabled = isActive;
             }
         }
