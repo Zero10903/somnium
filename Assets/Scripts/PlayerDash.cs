@@ -29,18 +29,18 @@ public class PlayerDash : MonoBehaviour{
     }
     private IEnumerator Dash (){
         if(_playerMovement.Direction != 0 && _canDash == true){
-            // Si ya está dasheando, no puede dashear
+            // ? If it’s already dashing, it can’t dash again.
             _isDashing = true;
             _canDash = false;
 
-            _rb.gravityScale = 0f; // Cambio la gravedad a 0 para no caer al dashear
+            _rb.gravityScale = 0f; // ? I set the gravity to 0 to avoid falling while dashing.
             _rb.velocity = new Vector2(_playerMovement.Direction * _dashForce, 0f);
 
-            yield return new WaitForSeconds(_dashingTime); // Esperar a que el dash termine
+            yield return new WaitForSeconds(_dashingTime); // ? Wait for the dash to finish.
             _isDashing = false;
             _rb.gravityScale = _baseGravity;
 
-            yield return new WaitForSeconds(_dashColdown); // Coldown to dash
+            yield return new WaitForSeconds(_dashColdown); // ? Coldown to dash.
             _canDash = true;
         }
     }
