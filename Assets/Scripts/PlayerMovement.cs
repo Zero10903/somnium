@@ -6,10 +6,12 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour {
 
     private Rigidbody2D _rb;
+    private PlayerDash _playerDash;
 
     [Header("Movement")]
     [SerializeField] private float _speed = 6f;
-    private float direction;
+    private float _direction;
+    public float Direction => _direction;
 
     [Header("Jump")]
     [SerializeField] private float _jumpForce = 7f;
@@ -21,18 +23,20 @@ public class PlayerMovement : MonoBehaviour {
 
     private void Awake() {
         _rb = GetComponent<Rigidbody2D>();
+        _playerDash = GetComponent<PlayerDash>();
     }
 
     private void Update()
     {
-        Movement();
-
-        Jump();
+        if(!_playerDash.IsDashing){
+            Movement();
+            Jump();
+        }
     }
     public void Movement(){
         // ! Horizontal movement
-        direction = Input.GetAxisRaw("Horizontal"); // ? Detects if you press left or right arrows and 'a' or 'd'
-        _rb.velocity = new Vector2(direction * _speed, _rb.velocity.y);
+        _direction = Input.GetAxisRaw("Horizontal"); // ? Detects if you press left or right arrows and 'a' or 'd'
+        _rb.velocity = new Vector2(_direction * _speed, _rb.velocity.y);
     }
     public void Jump(){
         // ? Check if raycast rays detect the ground
