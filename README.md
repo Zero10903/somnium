@@ -1,11 +1,13 @@
 <div align="center">
     <h1>Somnium</h1>
-    <img src="./Assets/Images/cover.png" alt="Cover image" width="100%"/>
+    <img src="./Assets/Marketing/CoverArt/cover.png" alt="Cover image" width="100%"/>
 </div>
 
 ## What is it about?
 
-Somnium is a 2D platformer based on a baby's journey through his home while alternating between the real world and the dream world, avoiding and overcoming obstacles and nightmares. In Somnium, the player must interact with objects that will bring back memories and grant powers (activable only in the dream world) to help him reunite with his mother; eventually realizing that she is no longer with him.
+Somnium is a 2D platformer with pixel art aesthetics based on a baby's journey through his home. In Somnium, you must alternate between the dream and nightmare dimensions to overcome obstacles, using power-ups to find the missing mother of Eric, the magical baby.
+
+> Check the [Game Design Document](https://docs.google.com/document/d/1oA3fnJV3PdR0l84_BQ2afU1-UNV_-LvPpQOJAdWs4Rg/edit?usp=sharing) for more info.
 
 ## Want to contribute?
 
