@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class Checkpoint : MonoBehaviour {
     
-    [Header("Checkpoint")]
-    [SerializeField] private bool _isActive = false;
+    private PlayerDeath _playerDeath;
+
+    private void Start() {
+        _playerDeath = FindObjectOfType<PlayerDeath>();
+    }
 
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.CompareTag("Player")) {
@@ -13,6 +16,6 @@ public class Checkpoint : MonoBehaviour {
         }
     }
     private void ActivateCheckpoint() {
-        _isActive = true;
+        _playerDeath.SetCheckpoint(this);
     }
 }
