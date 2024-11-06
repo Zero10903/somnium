@@ -5,6 +5,8 @@ using UnityEngine;
 public class TemporaryPlatforms : MonoBehaviour {
 
     private PlayerTogglePlatforms _playerTogglePlatforms;
+    private SpriteRenderer _spriteRenderer;
+    private Collider2D _collider;
 
     [Header("Temporary Platforms")]
     [SerializeField] private float _timeToDeactivate = 2.0f;
@@ -19,6 +21,8 @@ public class TemporaryPlatforms : MonoBehaviour {
         _canDeactivate = true;
         _isReactivating = false;
         _playerTogglePlatforms = FindObjectOfType<PlayerTogglePlatforms>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+        _collider = GetComponent<Collider2D>();
     }
 
     private void OnCollisionEnter2D(Collision2D other){
@@ -33,14 +37,12 @@ public class TemporaryPlatforms : MonoBehaviour {
         _isActive = false;
         _isReactivating = true;
         
-        var spriteRenderer = GetComponent<SpriteRenderer>();
-        if(spriteRenderer != null){
-            spriteRenderer.enabled = _isActive;
+        if(_spriteRenderer != null){
+            _spriteRenderer.enabled = _isActive;
         }
 
-        var collider = GetComponent<Collider2D>();
-        if(collider != null){
-            collider.enabled = _isActive;
+        if(_collider != null){
+            _collider.enabled = _isActive;
         }
 
         StartCoroutine(ActivatePlatform());
@@ -56,14 +58,12 @@ public class TemporaryPlatforms : MonoBehaviour {
         _canDeactivate = true;
         _isReactivating = false;
         
-        var spriteRenderer = GetComponent<SpriteRenderer>();
-        if(spriteRenderer != null){
-            spriteRenderer.enabled = _isActive;
+        if(_spriteRenderer != null){
+            _spriteRenderer.enabled = _isActive;
         }
 
-        var collider = GetComponent<Collider2D>();
-        if(collider != null){
-            collider.enabled = _isActive;
+        if(_collider != null){
+            _collider.enabled = _isActive;
         }
     }
 }

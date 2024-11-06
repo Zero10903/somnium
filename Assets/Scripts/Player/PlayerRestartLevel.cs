@@ -14,6 +14,5 @@ public class PlayerRestartLevel : MonoBehaviour {
     public void RestartLevel() {
         // ? Restart the level from the beginning if no checkpoint is activated.
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-
     }
 }
