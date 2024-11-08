@@ -1,5 +1,3 @@
-using UnityEngine;
-
 public class TemporaryPlatform : BasePlatform {
 
     private void Start() {
@@ -7,7 +5,7 @@ public class TemporaryPlatform : BasePlatform {
     }
 
     private void Update() {
-        if(_playerToggleDimension.IsDreamsDimensionActive == true) {
+        if(_playerToggleDimension.IsDreamsDimensionActive == true && _isPlayerDetected == false) {
             ActivatePlatform();
         } else {
             DeactivatePlatform();

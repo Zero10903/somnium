@@ -1,5 +1,3 @@
-using UnityEngine;
-
 public class MovingPlatform : BasePlatform {
     
     private void Start() {
@@ -7,10 +5,10 @@ public class MovingPlatform : BasePlatform {
     }
 
     private void Update() {
-        if(_playerToggleDimension.IsDreamsDimensionActive == true) {
-            DeactivatePlatform();
-        } else {
+        if(_playerToggleDimension.IsDreamsDimensionActive == false && _isPlayerDetected == false) {
             ActivatePlatform();
+        } else {
+            DeactivatePlatform();
         }
     }
 }
