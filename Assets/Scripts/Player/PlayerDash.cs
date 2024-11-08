@@ -1,8 +1,7 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerDash : MonoBehaviour{
+public class PlayerDash : MonoBehaviour {
     
     private Rigidbody2D _rb;
     private PlayerMovement _playerMovement;
@@ -23,12 +22,12 @@ public class PlayerDash : MonoBehaviour{
     }
     
     private void Update() {
-        if(Input.GetKeyDown(KeyCode.LeftShift)){
+        if(Input.GetKeyDown(KeyCode.LeftShift)) {
             StartCoroutine(Dash());
         }
     }
-    private IEnumerator Dash (){
-        if(_playerMovement.Direction != 0 && _canDash == true){
+    private IEnumerator Dash () {
+        if(_playerMovement.Direction != 0 && _canDash == true) {
             // ? If it’s already dashing, it can’t dash again.
             _isDashing = true;
             _canDash = false;
