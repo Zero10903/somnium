@@ -14,7 +14,7 @@ public class BasePlatform : MonoBehaviour {
         _collider = GetComponent<BoxCollider2D>();
     }
 
-    protected virtual void OnTriggerEnter2D(Collider2D other) {
+    protected virtual void OnTriggerStay2D(Collider2D other) {
         if (other.CompareTag("Player")) {
             _isPlayerDetected = true;
         }
