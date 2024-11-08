@@ -3,8 +3,9 @@ using UnityEngine;
 
 public class TemporaryPlatform : BasePlatform {
 
-    private float _timeToDeactivate = 2f;
-    private float _timeToReactivate = 2f;
+    [Header("Temporary Platform")]
+    [SerializeField] private float _timeToDeactivate = 2f;
+    [SerializeField] private float _timeToReactivate = 2f;
     private bool _canReactivate = true;
 
     private void Start() {
