@@ -6,12 +6,12 @@ public class PlayerMovement : MonoBehaviour {
     private PlayerDash _playerDash;
 
     [Header("Movement")]
-    [SerializeField] private float _speed = 6f;
+    [SerializeField] private float _speed = 7f;
     private float _direction;
     public float Direction => _direction;
 
     [Header("Jump")]
-    [SerializeField] private float _jumpForce = 7f;
+    [SerializeField] private float _jumpForce = 12.3f;
     [SerializeField] private Transform _checkGround;
     [SerializeField] private float _raycastLenght;
     [SerializeField] private LayerMask _groundLayer;
