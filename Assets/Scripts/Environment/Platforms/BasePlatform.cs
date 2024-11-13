@@ -1,17 +1,17 @@
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class BasePlatform : MonoBehaviour {
 
     protected PlayerToggleDimension _playerToggleDimension;
-    protected SpriteRenderer _spriteRenderer;
-    protected BoxCollider2D _collider;
-
+    protected TilemapRenderer _tilemapRenderer;
+    protected TilemapCollider2D _tilemapCollider;
     protected bool _isPlayerDetected = false;
 
     protected virtual void Awake() {
         _playerToggleDimension = FindObjectOfType<PlayerToggleDimension>();
-        _spriteRenderer = GetComponent<SpriteRenderer>();
-        _collider = GetComponent<BoxCollider2D>();
+        _tilemapRenderer = GetComponent<TilemapRenderer>();
+        _tilemapCollider = GetComponent<TilemapCollider2D>();
     }
 
     protected virtual void OnTriggerStay2D(Collider2D other) {
@@ -26,12 +26,12 @@ public class BasePlatform : MonoBehaviour {
     }
 
     protected virtual void ActivatePlatform() {
-        _spriteRenderer.enabled = true;
-        _collider.isTrigger = false;
+        _tilemapRenderer.enabled = true;
+        _tilemapCollider.isTrigger = false;
     }
 
     protected virtual void DeactivatePlatform() {
-        _spriteRenderer.enabled = false;
-        _collider.isTrigger = true;
+        _tilemapRenderer.enabled = false;
+        _tilemapCollider.isTrigger = true;
     }
 }

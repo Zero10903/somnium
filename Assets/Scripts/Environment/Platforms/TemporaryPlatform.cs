@@ -13,7 +13,7 @@ public class TemporaryPlatform : BasePlatform {
     }
 
     private void Update() {
-        if(_playerToggleDimension.IsDreamsDimensionActive && _isPlayerDetected == false && _canReactivate) {
+        if(_playerToggleDimension.IsDreamsDimensionActive && !_isPlayerDetected && _canReactivate) {
             ActivatePlatform();
         } else {
             DeactivatePlatform();
