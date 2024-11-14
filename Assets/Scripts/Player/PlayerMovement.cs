@@ -17,6 +17,8 @@ public class PlayerMovement : MonoBehaviour {
     [SerializeField] private LayerMask _groundLayer;
     [SerializeField] private bool _isGrounded;
 
+    [Header("Animation")]
+    [SerializeField] private Animator _animator;
 
     private void Awake() {
         _rb = GetComponent<Rigidbody2D>();
@@ -34,6 +36,14 @@ public class PlayerMovement : MonoBehaviour {
         // ! Horizontal movement
         _direction = Input.GetAxisRaw("Horizontal"); // ? Detects if you press left or right arrows and 'a' or 'd'
         _rb.velocity = new Vector2(_direction * _speed, _rb.velocity.y);
+
+        // ! Animation
+        _animator.SetBool("_isMoving", _direction != 0);
+        if(_direction < 0){
+            transform.localScale = new Vector3(-1, 1, 1);
+        } else if(_direction > 0){
+            transform.localScale = new Vector3(1, 1, 1);
+        }
     }
     public void Jump(){
         // ? Check if raycast rays detect the ground
