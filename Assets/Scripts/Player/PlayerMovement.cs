@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour {
         _direction = Input.GetAxisRaw("Horizontal"); // ? Detects if you press left or right arrows and 'a' or 'd'
         _rb.velocity = new Vector2(_direction * _speed, _rb.velocity.y);
 
-        // ! Animation
+        // ! Walk animation
         _animator.SetBool("_isMoving", _direction != 0);
         if(_direction < 0){
             transform.localScale = new Vector3(-1, 1, 1);
@@ -48,7 +48,9 @@ public class PlayerMovement : MonoBehaviour {
     public void Jump(){
         // ? Check if raycast rays detect the ground
         _isGrounded = Physics2D.Raycast(_checkGround.position, Vector2.down, _raycastLenght, _groundLayer);
-
+        // ! Jump animation
+        _animator.SetBool("_isGrounded", _isGrounded);
+            
         // ? Jump only when press Space Key and player is touching the ground
         if (Input.GetKeyDown(KeyCode.Space) && _isGrounded == true){
             _rb.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);

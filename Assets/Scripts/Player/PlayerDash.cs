@@ -33,7 +33,7 @@ public class PlayerDash : MonoBehaviour {
         if(_playerMovement.Direction != 0 && _canDash == true) {
             // ? If it’s already dashing, it can’t dash again.
             _isDashing = true;
-            _animator.SetBool("_isDashing", true);
+            _animator.SetBool("_isDashing", true); // ! Activate animation
             _canDash = false;
 
             _rb.gravityScale = 0f; // ? I set the gravity to 0 to avoid falling while dashing.
@@ -41,7 +41,7 @@ public class PlayerDash : MonoBehaviour {
 
             yield return new WaitForSeconds(_dashingTime); // ? Wait for the dash to finish.
             _isDashing = false;
-            _animator.SetBool("_isDashing", false);
+            _animator.SetBool("_isDashing", false); // ! Deactivate animation
             _rb.gravityScale = _baseGravity;
 
             yield return new WaitForSeconds(_dashColdown); // ? Coldown to dash.
