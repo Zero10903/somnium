@@ -17,7 +17,7 @@ public class EndLevel : MonoBehaviour {
     }
 
     public void RestartLevel() {
-        Time.timeScale = 1f; // Continue the
+        Time.timeScale = 1f; // Continue the game
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
