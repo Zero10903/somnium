@@ -20,4 +20,9 @@ public class EndLevel : MonoBehaviour {
         Time.timeScale = 1f; // Continue the game
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+
+    public void CloseGame() {
+        Time.timeScale = 1f; // Continue the game
+        Application.Quit();
+    }
 }
